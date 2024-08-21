@@ -11,7 +11,7 @@ def caesar_cipher(input_string, shift_factor)
   end
   p output_characters
 
-  input_string
+  output_characters.join
 end
 
 def in_alphabet?(character)
