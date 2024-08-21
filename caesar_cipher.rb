@@ -3,22 +3,16 @@ def caesar_cipher(input_string, shift_factor)
 
   output_characters = input_characters.map do |character|
     if character.between?("a", "z")
-      shift_letter(character, shift_factor, "a")
+      # ASCII value converted to range 0-25, shifted (wrap z-a), then converted back
+      ((letter.ord - "a".ord + shift_factor) % 26 + "a".ord).chr
     elsif character.between?("A", "Z")
-      shift_letter(character, shift_factor, "A")
+      ((letter.ord - "A".ord + shift_factor) % 26 + "A".ord).chr
     else
       character
     end
   end
 
   output_characters.join
-end
-
-def shift_letter(letter, shift_factor, a_or_A)
-  number_representing_letter_from_0_to_25 = letter.ord - a_or_A.ord
-  shifted_number = number_representing_letter_from_0_to_25 + shift_factor
-  shifted_number_from_0_to_25 = shifted_number % 26
-  shifted_letter = (shifted_number_from_0_to_25 + a_or_A.ord).chr
 end
 
 puts "Please enter an input string and shift factor:"
