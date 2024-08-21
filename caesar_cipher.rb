@@ -2,6 +2,11 @@ def caesar_cipher(input_string, shift)
   input_characters = input_string.split("")
   p input_characters
 
+  output_characters = input_characters.map do |character|
+    original_number = character.ord
+  end
+  p output_characters
+
   input_string
 end
 
