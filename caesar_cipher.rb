@@ -1,4 +1,7 @@
 def caesar_cipher(input_string, shift)
+  input_characters = input_string.split("")
+  p input_characters
+
   input_string
 end
 
