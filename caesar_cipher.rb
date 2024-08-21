@@ -2,9 +2,9 @@ def caesar_cipher(input_string, shift_factor)
   input_characters = input_string.split("")
 
   output_characters = input_characters.map do |character|
-    if in_downcase_alphabet?(character)
+    if character.between?("a", "z")
       shift_letter(character, shift_factor, "a")
-    elsif in_upcase_alphabet?(character)
+    elsif character.between?("A", "Z")
       shift_letter(character, shift_factor, "A")
     else
       character
@@ -12,14 +12,6 @@ def caesar_cipher(input_string, shift_factor)
   end
 
   output_characters.join
-end
-
-def in_downcase_alphabet?(character)
-  ("a".ord.."z".ord).include?(character.ord)
-end
-
-def in_upcase_alphabet?(character)
-  ("A".ord.."Z".ord).include?(character.ord)
 end
 
 def shift_letter(letter, shift_factor, a_or_A)
